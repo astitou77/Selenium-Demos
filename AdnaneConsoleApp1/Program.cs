@@ -1,13 +1,22 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-Console.WriteLine("Hello, World!");
+public class HelloJSP_World {
 
-var text = Console.ReadLine();
+    public HelloJSP_World()
+    {
+        // Container
+    }
 
-Console.WriteLine("yo name is: " + text);
+    public static void Main(String[] args)
+    {
+        // run stuff here
 
-var text2 = Console.ReadLine();
+        Console.WriteLine("Hello, World!");
+        var text = Console.ReadLine();
 
+        Console.WriteLine("yo name is: " + text);
+        var text2 = Console.ReadLine();
+    }
 
-
+}
 
