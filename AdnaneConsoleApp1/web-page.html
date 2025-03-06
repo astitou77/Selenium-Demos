@@ -1,0 +1,72 @@
+<html>
+
+<head>
+
+    <title> HTML Form </title>
+
+    <meta />
+
+    <style>
+        .success{
+            color: green;
+            font-weight: bold;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <h1>Temporary Resident</h1>
+    <h2>Visa</h2>
+
+    <p><i>Only people who's name is Adnane will be Approved for Visa</i></p>
+
+    <!-- action="/MyApps/repos/AdnaneConsoleApp1/AdnaneConsoleApp1/result.html" -->
+    <form id="nameForm">
+        <label for="fname"> First Name: </label>
+        <input type="text" id="fname" name="fname" required/> <br>
+
+        <label for="lname"> Last Name: </label>
+        <input type="text" id="lname" name="lname" required/> <br>
+
+        <!--input type="submit" value="Submit"-->
+        <button type="submit">SUBMIT</button>
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+        document.getElementById("nameForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // prevent page reload
+
+            let fname = document.getElementById("fname").value.trim();
+            let lname = document.getElementById("lname").value.trim();
+            let messagez = document.getElementById("message");
+
+            // alert("fname: " + fname + " lname: " + lname + " messagez: " + messagez);
+
+            if (fname.toLocaleLowerCase() === 'adnane') {
+                messagez.textContent = "SUCCESS ! Welcome, " + fname + " " + lname;
+                messagez.className = "success";
+            } else {
+                messagez.textContent = "FAILED ! Only 'Adnane' is allowed as the first name.";
+                messagez.className = "error";
+            }
+
+        });
+    </script>
+
+
+
+    <!-- file:///C:/result.html?fname=aaaa&lname=bbbb -->
+
+</body>
+
+
+</html>
