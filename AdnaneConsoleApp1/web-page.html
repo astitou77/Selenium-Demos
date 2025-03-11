@@ -7,10 +7,11 @@
     <meta />
 
     <style>
-        .success{
+        .success {
             color: green;
             font-weight: bold;
         }
+
         .error {
             color: red;
             font-weight: bold;
@@ -19,36 +20,92 @@
 
 </head>
 
-
 <body>
+    <h2>IRCC > DSSI > QM > QA Automation</h2>
+    <p><b>End-2-End TESTING</b> : 1. eApp intake [Java/JDK] ---> 2. integration [HIP/OpenShift] ---> 3. GCMS CRM [Siebel] </p>
+    <p>
+        1. ENVIRONMENT (Dev --> <b>Test --> Staging --></b> Training --> Production):
 
-    <h1>Temporary Resident</h1>
-    <h2>Visa</h2>
+        <br><br>
+        2. USER [out of 33 users]: <b>User #21</b> | <u>CBSA Border Agent A123 | MTL Trudeau Airport</u>
 
-    <p><i>Only people who's name is Adnane will be Approved for Visa</i></p>
+        <br><br>
+        3. USER Permissions
+        <ul>
+            <li>LOB: IMMIGRATION > [ Temporary Resident | Permanent Resident ] > Visa > <b><u>eTA</u></b> </li>
+            <li>LOB: REFUGEES    > [ UN Refugee | Sponsored Refugee | Asylum ] > <b>Refugee Card</b> </li>
+            <li>LOB: CITIZENSHIP > [ Exam | Oath | Renunciation | Passport ] > <b>Certificate of Citizenship</b> </li>
+        </ul>
 
-    <!-- action="/MyApps/repos/AdnaneConsoleApp1/AdnaneConsoleApp1/result.html" -->
-    <form id="nameForm">
-        <label for="fname"> First Name: </label>
-        <input type="text" id="fname" name="fname" required/> <br>
+        <i>Requirements:</i>
+        <ol>
+            <li>Travel <b>"By AIR"</b> (not Land, or Boat)</li>
+            <li>Travel Document is a Passport from <b>"Europe_US"</b> Country</li>
+            <li>First Name is <b>"Adnane"</b></li>
+        </ol>
+    </p>
 
-        <label for="lname"> Last Name: </label>
-        <input type="text" id="lname" name="lname" required/> <br>
+    <div style="border: 1px dashed">
+        <h3>APPLY for eTA: </h3>
+        <!-- action="/MyApps/repos/AdnaneConsoleApp1/AdnaneConsoleApp1/result.html" -->
+        <form id="nameForm">
+            <input type="radio" id="land" name="travel" value="HTML">
+            <label for="html">By Land</label><br>
+            <input type="radio" id="air" name="travel" value="CSS">
+            <label for="css">By Air</label><br>
+            <input type="radio" id="boat" name="travel" value="JavaScript">
+            <label for="javascript">By Boat</label>
 
-        <!--input type="submit" value="Submit"-->
-        <button type="submit">SUBMIT</button>
-    </form>
+            <br> <br>
+            <label for="cars">Travel Document Country:</label>
+            <select id="cars" name="cars">
+                <option value="asia">Asia</option>
+                <option value="australia">Australia</option>
+                <option value="europe">Europe_US</option>
+                <option value="africa">Africa</option>
+                <option value="southAmerica">South_America</option>
+            </select>
 
-    <p id="message"></p>
+            <br> <br>
+            <label for="fname"> First Name: </label>
+            <input type="text" id="fname" name="fname" value="Adnane" required /> <br>
+
+            <label for="lname"> Last Name: </label>
+            <input type="text" id="lname" name="lname" value="Stitou" required /> <br>
+
+            <br>
+            <!--input type="submit" value="Submit"-->
+            <button type="submit">SUBMIT</button>
+        </form>
+
+        <p id="message"></p>
+
+    </div>
+
+
+    <h2>QM TEST PLAN - (Test Coverage) - Sanity (Low Case Update/Change): </h2>
+    <ul>
+        <li>By Air ; Europe_US ; <b>a</b>dnane ; Superman ; <br> EXPECTED: APPROVED !</li>
+    </ul>
+    <h2>QM TEST PLAN - (Test Coverage) - Regression (old functionality): </h2>
+    <ul>
+        <li>By Air ; Europe_US ; Adnane ; Superman ; <br> EXPECTED: APPROVED !</li>
+        <li>By Land ; Europe_US ; Adnane ; Superman ; <br> EXPECTED: REJECTED !</li>
+        <li>By Air ; South_America ; Adnane ; Superman ; <br> EXPECTED: REJECTED !</li>
+        <li>By Air ; Europe_US ; Sammy ; Superman ; <br> EXPECTED: REJECTED !</li>
+    </ul>
 
     <script>
         document.getElementById("nameForm").addEventListener("submit", function (event) {
             event.preventDefault(); // prevent page reload
 
+            let travel = document.querySelector('input[name="travel"]:checked');
+            // let travel = document.getElementsByClassName("travel");
+            alert("Travel Type Selected: " + travel.innerText);
+
             let fname = document.getElementById("fname").value.trim();
             let lname = document.getElementById("lname").value.trim();
             let messagez = document.getElementById("message");
-
             // alert("fname: " + fname + " lname: " + lname + " messagez: " + messagez);
 
             if (fname.toLocaleLowerCase() === 'adnane') {

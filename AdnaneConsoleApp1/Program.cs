@@ -1,10 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
 // stuff
 
-using OpenQA.Selenium.Chrome;   // new ChromeDriver()
 using OpenQA.Selenium;          // IWebElement
+using OpenQA.Selenium.Chrome;   // new ChromeDriver()
 
-public class HelloJSP_World {
+public class HelloJSP_World
+{
 
     public static void Main(String[] args)
     {
@@ -45,7 +46,7 @@ public class HelloJSP_World {
         {
             driver.Quit();
         }
-        
+
 
 
         // 2. Use a Method
