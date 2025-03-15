@@ -8,7 +8,7 @@ namespace AdnaneConsoleApp1.eTA
 {
     public class HelloJSP_World
     {
-        public static void Main(String[] args)
+        public static void Mainzz(String[] args)
         {
             // 3. Selenium WebDriver
             // ------------------------------
